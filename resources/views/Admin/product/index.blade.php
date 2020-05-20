@@ -1,18 +1,34 @@
-<?php
-use App\Model\Product;
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Danh sach san pham</title>
+</head>
+<body>
+<?php var_dump($product);
 ?>
-<div >
-    <h1> Danh sach san pham</h1>
-    <tr>
-        <th> STT</th>
-        <th> Ten </th>
-        <th> Gia </th>
-        <th> ngay tao</th>
-        <th> ngay cap nhat</th>
-    </tr>
-</div>
-<div>
-    @foreach($products as $key => $product)
-        <tr> {$}</tr>
+    <table  border="1">
+        <caption> Danh sách</caption>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th> Ngày tạo</th>
+                <th>sửa</th>
+                <th>xóa</th>
+            </tr>
+        </thead>
+        <tbody>
 
-</div>
+        <tr>
+            <td>data1</td>
+            <td>data1</td>
+            <td>data1</td>
+            <td>data1</td>
+            <td>data1</td>
+            <td>data1</td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

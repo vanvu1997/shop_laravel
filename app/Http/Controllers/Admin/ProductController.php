@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Product;
+use Illuminate\Support\Facades\DB;
 
 use App\Http\Controllers\Controller;
-use App\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,7 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::all();
+        $product = Product::all()->toArray();
+        return view('admin.product.index')->with('product',$product);
     }
 
     /**
@@ -25,7 +27,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        // trang them san pham
+        return view('product.create');
     }
 
     /**
