@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<?php
-use App\Model\Product;
-?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -22,8 +19,6 @@ use App\Model\Product;
             </tr>
         </thead>
         <tbody>
-<?php $product = Product::get();
-foreach ($product as $value):?>
         <tr>
             <td>{{$value[name]}}</td>
             <td>data1</td>
@@ -32,7 +27,6 @@ foreach ($product as $value):?>
             <td>data1</td>
             <td>data1</td>
         </tr>
-<?php endforeach;?>
         </tbody>
     </table>
 </body>
