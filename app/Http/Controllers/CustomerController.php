@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-use App\Product;
+namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
+use App\Model\Customer;
 use Illuminate\Support\Facades\DB;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all()->toArray();
-        return view('admin.product.index')->with('product',$product);
+        $customer = Customer::all();
+
+        return view('customer.index',['customer'=>$customer]);
+
     }
 
     /**
@@ -27,8 +29,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        // trang them san pham
-        return view('product.create');
+        // trang them khach hang
+        return view('customer.create');
     }
 
     /**
@@ -39,8 +41,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::create($request->all());
-        return $product;
+        $customer = Customer::create($request->all());
+        return $customer;
     }
 
     /**
@@ -51,7 +53,7 @@ class ProductController extends Controller
      */
     public function detail($id)
     {
-        return view('product.detail', ['product'=> Product::findOrFail()]);
+        return view('customer.detail', ['customer'=> Customer::findOrFail()]);
     }
 
     /**
@@ -74,9 +76,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::findOrFail($id);
-        $product ->update($request->all());
-        return $product;
+        $customer = Customer::findOrFail($id);
+        $customer ->update($request->all());
+        return $customer;
     }
 
     /**
@@ -87,8 +89,8 @@ class ProductController extends Controller
      */
     public function delete($id)
     {
-        $product = Product::findOrFail($id);
-        $product ->delete();
+        $customer = Customer::findOrFail($id);
+        $customer ->delete();
         return '';
     }
 }
